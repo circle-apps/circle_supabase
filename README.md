@@ -19,3 +19,4 @@
 * Make db changes on studio. Added a new ```updated_at``` column.
 * Genrate migration with auto diff ```supabase db diff -f user_login```. This will create a new migration file. 
 * Commit the file and raise pr to ```dev```
+* Ensure all tests have passed (optional but the ci.yaml workflow ensures no db migration error). Merge PR. This triggers workflow on ```dev``` to run the migration on ```circle-dev``` project.
