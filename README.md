@@ -11,3 +11,5 @@
 * Create table ```user_login``` with columns ```email, password, created_at```
 * Genrate migration with auto diff ```supabase db diff -f user_login```
 * Pushed code to ```circle_supabase``` repo on ```dev``` branch
+* Created PAT on supabase for account
+* Added 3 workflow files, configured action credentials
