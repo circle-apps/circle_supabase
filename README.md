@@ -13,3 +13,9 @@
 * Pushed code to ```circle_supabase``` repo on ```dev``` branch
 * Created PAT on supabase for account
 * Added 3 workflow files, configured action credentials
+* Pushed to dev. This triggeres workflow on dev and creates ```user_login``` table in ```circle-dev``` project.
+* Create ```main``` branch from ```dev``` on github web. It triggers workflow on main, which creates ```user_login``` table in ```circle-prod``` 
+* Checkout to ```feature``` branch 
+* Make db changes on studio. Added a new ```updated_at``` column.
+* Genrate migration with auto diff ```supabase db diff -f user_login```. This will create a new migration file. 
+* Commit the file and raise pr to ```dev```
