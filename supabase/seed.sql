@@ -1,0 +1,1 @@
+insert into user_login (email, password) values ('test@test.com', 'test');
