@@ -1,0 +1,1 @@
+insert into user_info (name) values ('user3'), ('user4');
