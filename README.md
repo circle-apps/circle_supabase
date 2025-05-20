@@ -20,3 +20,19 @@
 * Genrate migration with auto diff ```supabase db diff -f user_login```. This will create a new migration file. 
 * Commit the file and raise pr to ```dev```
 * Ensure all tests have passed (optional but the ci.yaml workflow ensures no db migration error). Merge PR. This triggers workflow on ```dev``` to run the migration on ```circle-dev``` project.
+
+## FAQs
+### How to rollback a migration
+* ```supabase db reset --version 20250519062556``` where 20250519062556 is the version(timestamp) of the migration to rollback to. 
+* This will delete the existing data from the tables and re-seed. Devs need to backup the data via tools like pgAdmin and then restore it after rollback.
+* Run the reset command with ```--no-seed``` to skip the seeding to avoid duplicate constraint errors when restoring the data.
+
+### How will devs take the migration changes from other devs?
+* pull the changes from the remote branch to local branch ```git pull```
+* run ```supabase migration list --local``` to see the list of migrations
+* run ```supabase migration up``` to apply the migrations
+
+### How to push seed data to the database on deployment?
+* run ```supabase db push --include-seed``` (updated in workflow) to push the migrations and seed data to the remote database
+* The path for seed files should be configured in ```supabase/config.toml``` file.
+* Once a seed file is pushed to git (deployed to remote project), its content should not be updated to add new rows. Instead, a new seed file should be created.
